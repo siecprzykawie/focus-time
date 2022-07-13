@@ -4,11 +4,11 @@ import { View, StyleSheet } from 'react-native';
 import FTText, { TEXT_TYPE } from '../../components/FTText';
 
 
-export const AddNewTask = ({ setCurrentFocusItem }) => {
-    const [focusItem, setFocusItem] = useState("");
+export const AddNewTask = ({ setCurrentTask }) => {
+    const [task, setTask] = useState("");
 
-    const handleFocusItemChange = (focusItem) => {
-        setCurrentFocusItem(focusItem);
+    const handleFocusItemChange = (task) => {
+        setCurrentTask(task);
     }
 
     return (
@@ -19,10 +19,10 @@ export const AddNewTask = ({ setCurrentFocusItem }) => {
             />
             <TextInput
                 label="What would you like to focus on?"
-                value={focusItem}
-                onChangeText={text => setFocusItem(text)}
+                value={task}
+                onChangeText={text => setTask(text)}
             />
-            <Button icon="check" mode="contained" onPress={() => handleFocusItemChange(focusItem)}>
+            <Button icon="check" mode="contained" onPress={() => handleFocusItemChange(task)}>
                 Set focus item
             </Button>
         </View>

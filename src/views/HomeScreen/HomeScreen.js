@@ -5,18 +5,18 @@ import { AddNewTask } from '../AddNewTask/AddNewTask';
 import { ActiveTask } from '../ActiveTask/ActiveTask';
 
 const HomeScreen = () => {
-    const [currentFocusItem, setCurrentFocusItem] = useState("")
+    const [currentTask, setCurrentTask] = useState("")
 
-    const currentView = !currentFocusItem ?
+    const renderActiveView = !currentTask ?
         <AddNewTask
-            setCurrentFocusItem={setCurrentFocusItem}
+            setCurrentTask={setCurrentTask}
         /> :
         <ActiveTask
-            currentFocusItem={currentFocusItem}
-            setCurrentFocusItem={setCurrentFocusItem}
+            currentTask={currentTask}
+            setCurrentTask={setCurrentTask}
         />;
     return (
-        <View>{currentView}</View>
+        <View>{renderActiveView}</View>
     )
 }
 
