@@ -2,11 +2,11 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { colors } from '../utils/colors'
 
-const FTText = ({ text, type }) => {
+const FTText = ({ type, children }) => {
     const textStyle = type === TEXT_TYPE.HEADER ? styles.header : styles.subHeader
 
     return (
-        <Text style={textStyle}>{text}</Text>
+        <Text style={textStyle}>{children}</Text>
     )
 }
 

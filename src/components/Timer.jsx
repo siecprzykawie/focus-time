@@ -4,10 +4,9 @@ import { secondsToTime } from '../helpers/timeHelper';
 import { colors } from '../utils/colors';
 import FTText from './FTText';
 
-const Timer = ({ focusTime, isFocusActive }) => {
+const Timer = ({ remainingTime, isFocusActive }) => {
 
-    const timeLeft = secondsToTime(focusTime);
-
+    const timeLeft = secondsToTime(remainingTime);
     return (
         <Pressable style={styles.container} onPress={() => { }}>
             <View style={styles.timerBody}>
@@ -23,6 +22,7 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        marginVertical: 25,
     },
     timerBody: {
         justifyContent: 'center',

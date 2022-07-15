@@ -1,29 +1,70 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native';
-import { IconButton } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 
-const TaskButtons = ({ setCurrentTask, isFocusActive, startFocusTimer }) => {
+const TaskButtons = ({ setCurrentTask, isFocusActive, startFocusTimer, resetFocusTimer }) => {
 
-    const clearItem = () => setCurrentTask("");
+    const resetTimer = () => {
+        setCurrentTask("");
+        resetFocusTimer();
+    }
 
     const buttonToRender = isFocusActive ?
-        <IconButton
-            icon="close"
-            color='#fff'
-            size={20}
-            onPress={() => clearItem}
-        /> :
-        <IconButton
-            icon="check"
-            color='#fff'
-            size={20}
+        <View style={styles.buttonWrapper}>
+            <Button
+                size={20}
+                mode="outlined"
+                style={styles.button}
+                onPress={() => resetTimer()}
+            >
+                &#10006;
+            </Button>
+        </View>
+        :
+        <Button
+            size={30}
+            mode="outlined"
+            style={styles.startButton}
             onPress={() => startFocusTimer()}
-        />
+        >
+            start
+        </Button>
+
+
+
     return (
-        <View>
+        <View style={styles.container}>
             {buttonToRender}
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 50,
+        marginTop: 25,
+    },
+    buttonWrapper: {
+        flexDirection: 'row',
+    },
+    button: {
+        width: 50,
+        borderRadius: 150,
+        backgroundColor: '#fff',
+        borderColor: '#fff',
+        border: 5,
+        marginHorizontal: 5,
+    },
+    startButton: {
+        width: 125,
+        borderRadius: 150,
+        backgroundColor: '#fff',
+        borderColor: '#fff',
+        border: 5,
+        marginHorizontal: 5,
+    },
+})
 
 export default TaskButtons
